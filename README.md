@@ -77,7 +77,7 @@ npm --version
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/devacrBIT/Taskhub.git
 ```
 
 Enter the project folder:
