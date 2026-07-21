@@ -1,0 +1,281 @@
+/* =====================
+   TASK TABLE ROWS
+===================== */
+
+
+.task-table {
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.task-table th {
+
+    padding:16px 20px;
+
+    text-align:left;
+
+    background:var(--card-hover);
+
+    color:var(--muted);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+
+
+
+.task-table td {
+
+    padding:16px 20px;
+
+    border-bottom:1px solid var(--border);
+
+    vertical-align:middle;
+
+}
+
+
+
+.task-table tbody tr {
+
+    transition:.2s ease;
+
+}
+
+
+
+.task-table tbody tr:hover {
+
+    background:var(--card-hover);
+
+}
+
+
+
+/* Make description take the free space */
+
+.task-table td:nth-child(2) {
+
+    width:100%;
+
+    color:var(--muted);
+
+}
+
+
+
+/* Keep buttons together */
+
+.task-actions {
+
+    display:flex;
+
+    gap:8px;
+
+    white-space:nowrap;
+
+}
+
+
+
+/* =====================
+   BUTTONS
+===================== */
+
+
+.task-actions button {
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+
+
+.task-actions button:last-child {
+
+    background:#ef4444;
+
+}
+
+
+
+.task-actions button:hover {
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.1);
+
+}
+
+
+
+
+
+/* =====================
+   PRIORITY
+===================== */
+
+
+.priority {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* =====================
+   COMPLETED
+===================== */
+
+
+.completed {
+
+    opacity:.55;
+
+    position:relative;
+
+}
+
+
+
+.completed td {
+
+    text-decoration:line-through;
+
+}
+
+/* =====================
+   PRIORITY COLORS
+===================== */
+
+
+.priority {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 14px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+
+
+/* Low */
+
+.priority.LOW {
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+
+
+/* Medium */
+
+.priority.MEDIUM {
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+
+
+/* High */
+
+.priority.HIGH {
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+/* =====================
+   TASK REMOVE ANIMATION
+===================== */
+
+
+.task-table tr {
+
+    transition:
+
+        opacity .3s ease,
+
+        transform .3s ease,
+
+        height .3s ease;
+
+}
+
+
+
+.task-table tr.removing {
+
+    opacity:0;
+
+    transform:
+
+        translateX(40px);
+
+}

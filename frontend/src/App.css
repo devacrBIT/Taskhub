@@ -1,0 +1,1101 @@
+/* =====================
+   GLOBAL
+===================== */
+
+* {
+    box-sizing:border-box;
+}
+
+
+html,
+body,
+#root {
+
+    margin:0;
+
+    width:100%;
+
+    min-height:100%;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+}
+
+
+button,
+input,
+textarea,
+select {
+
+    font-family:inherit;
+
+}
+
+
+
+/* =====================
+   APP THEMES
+===================== */
+
+
+.app {
+
+    display:grid;
+
+    grid-template-columns:260px minmax(0,1fr) 340px;
+
+    min-height:100vh;
+
+    width:100%;
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+
+
+/* LIGHT */
+
+
+.app.ocean {
+
+    --accent:#0099ff;
+    --sidebar:#005bea;
+    --background:#e0f2fe;
+    --card:#ffffff;
+    --card-hover:#dbeafe;
+    --text:#111827;
+    --muted:#64748b;
+    --border:#dbeafe;
+
+}
+
+
+
+.app.purple {
+
+    --accent:#c026ff;
+    --sidebar:#7e22ce;
+    --background:#f3e8ff;
+    --card:#ffffff;
+    --card-hover:#ede9fe;
+    --text:#111827;
+    --muted:#64748b;
+    --border:#e9d5ff;
+
+}
+
+
+
+.app.green {
+
+    --accent:#00c853;
+    --sidebar:#047857;
+    --background:#dcfce7;
+    --card:#ffffff;
+    --card-hover:#d1fae5;
+    --text:#111827;
+    --muted:#64748b;
+    --border:#bbf7d0;
+
+}
+
+
+
+.app.red {
+
+    --accent:#ff1744;
+    --sidebar:#b91c1c;
+    --background:#fee2e2;
+    --card:#ffffff;
+    --card-hover:#fecaca;
+    --text:#111827;
+    --muted:#64748b;
+    --border:#fecaca;
+
+}
+
+
+
+/* DARK */
+
+
+.app.ocean-dark {
+
+    --accent:#38bdf8;
+    --sidebar:#082f49;
+    --background:#020617;
+    --card:#0f172a;
+    --card-hover:#172554;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:#334155;
+
+}
+
+
+.app.purple-dark {
+
+    --accent:#d946ef;
+    --sidebar:#3b0764;
+    --background:#090014;
+    --card:#1f0835;
+    --card-hover:#3b0764;
+    --text:white;
+    --muted:#d8b4fe;
+    --border:#4c1d95;
+
+}
+
+
+.app.green-dark {
+
+    --accent:#34d399;
+    --sidebar:#022c22;
+    --background:#001f16;
+    --card:#052e22;
+    --card-hover:#064e3b;
+    --text:white;
+    --muted:#a7f3d0;
+    --border:#065f46;
+
+}
+
+
+.app.red-dark {
+
+    --accent:#fb7185;
+    --sidebar:#450a0a;
+    --background:#180505;
+    --card:#2b0b0b;
+    --card-hover:#450a0a;
+    --text:white;
+    --muted:#fecdd3;
+    --border:#7f1d1d;
+
+}
+
+
+
+
+
+/* =====================
+   SIDEBAR
+===================== */
+
+
+.sidebar {
+
+    background:var(--sidebar);
+
+    color:white;
+
+    height:100vh;
+
+    padding:25px;
+
+    position:sticky;
+
+    top:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.sidebar h1 {
+
+    margin:0;
+
+}
+
+
+
+.add-button {
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--accent);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+}
+
+
+
+.add-button:hover {
+
+    filter:brightness(1.15);
+
+    transform:translateY(-2px);
+
+}
+
+
+
+.sidebar select {
+
+    padding:12px;
+
+    border-radius:12px;
+
+    border:none;
+
+}
+
+
+
+
+
+/* =====================
+   CONTENT
+===================== */
+
+
+.content {
+
+    padding:35px;
+
+    min-width:0;
+
+    width:100%;
+
+}
+
+
+
+
+
+/* =====================
+   TABLE AREA
+===================== */
+
+
+.task-container {
+
+    width:100%;
+
+}
+
+
+
+.task-table {
+
+    width:100%;
+
+}
+
+
+
+
+
+/* =====================
+   TABS
+===================== */
+
+
+.tabs {
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.tabs button {
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+
+
+.tabs button.active {
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+
+
+
+
+/* =====================
+   SECTION COUNTER
+===================== */
+
+
+.section-title {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.section-title span {
+
+    background:var(--accent);
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* =====================
+   CALENDAR
+===================== */
+
+
+.calendar-panel {
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-left:1px solid var(--border);
+
+}
+
+
+
+.react-calendar {
+
+    width:100%;
+
+    border:none;
+
+    background:var(--card);
+
+    color:var(--text);
+
+}
+
+
+
+.react-calendar button {
+
+    color:var(--text);
+
+}
+
+
+
+.react-calendar__tile:hover {
+
+    background:var(--card-hover);
+
+}
+
+
+
+.react-calendar__tile--active {
+
+    background:var(--accent)!important;
+
+    color:white!important;
+
+}
+
+.react-calendar__tile--now {
+
+    background:var(--muted);
+
+    color:white;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+}
+
+
+.calendar-dots {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:4px;
+
+}
+
+
+.calendar-dots .dot {
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+}
+
+
+
+
+/* =====================
+   POPUP
+===================== */
+
+
+.add-overlay {
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+
+
+.add-window {
+
+    width:500px;
+
+    max-width:90%;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:35px;
+
+    border-radius:25px;
+
+}
+
+
+
+.close {
+
+    float:right;
+
+    border:none;
+
+    background:none;
+
+    color:var(--text);
+
+    font-size:25px;
+
+}
+
+
+
+
+
+/* =====================
+   FORMS
+===================== */
+
+
+input,
+textarea,
+/* =====================
+   BEAUTIFUL DROPDOWNS
+===================== */
+
+
+select {
+
+    appearance:none;
+
+    width:100%;
+
+    padding:14px 45px 14px 16px;
+
+    border-radius:14px;
+
+    border:1px solid var(--border);
+
+    background:
+
+        var(--card)
+
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")
+
+        no-repeat;
+
+    background-position:right 15px center;
+
+    background-size:18px;
+
+
+    color:var(--text);
+
+    font-size:15px;
+
+    cursor:pointer;
+
+
+    transition:
+
+        border-color .25s ease,
+
+        box-shadow .25s ease,
+
+        transform .2s ease;
+
+}
+
+
+
+select:hover {
+
+    transform:translateY(-2px);
+
+    border-color:var(--accent);
+
+}
+
+
+
+select:focus {
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:
+
+        0 0 0 4px rgba(56,189,248,.2);
+
+}
+
+
+
+/* dropdown options */
+
+option {
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:12px;
+
+}
+
+form {
+    background-color: var(--background);
+}
+
+option {
+
+    background:var(--card);
+
+    color:var(--text);
+
+}
+
+
+
+
+
+/* =====================
+   EMPTY
+===================== */
+
+
+.empty {
+
+    text-align:center;
+
+    color:var(--muted);
+
+    padding:50px;
+
+}
+
+
+
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+
+@media(max-width:1100px){
+
+    .app {
+
+        grid-template-columns:220px 1fr;
+
+    }
+
+
+    .calendar-panel {
+
+        display:none;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .sidebar {
+
+        display:none;
+
+    }
+
+
+    .app {
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.sort-bar {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.sort-bar label {
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+
+
+.sort-bar select {
+
+    width:auto;
+
+    min-width:220px;
+
+    margin:0;
+
+    background:var(--card);
+
+    color:var(--text);
+
+}
+
+.task-controls {
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.task-controls input {
+
+    flex:1;
+
+    min-width:220px;
+
+    margin:0;
+
+}
+
+
+
+.task-controls select {
+
+    width:auto;
+
+    min-width:160px;
+
+    margin:0;
+
+}
+.app-title {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.app-title img {
+
+    width:40px;
+
+    height:40px;
+
+    object-fit:contain;
+
+}
+
+
+.app-title h1 {
+
+    margin:0;
+
+    font-size:26px;
+
+    color: var(--text)
+
+}
+
+/* =====================
+   GLOBAL ANIMATIONS
+===================== */
+
+
+* {
+
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+
+}
+
+
+
+/* Page entrance */
+
+.app {
+
+    animation: appFade .5s ease;
+
+}
+
+
+@keyframes appFade {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+/* Sidebar */
+
+.sidebar {
+
+    animation: slideLeft .45s ease;
+
+}
+
+
+
+@keyframes slideLeft {
+
+    from {
+
+        transform:translateX(-40px);
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        transform:translateX(0);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+
+
+/* Content */
+
+.content {
+
+    animation: slideUp .45s ease;
+
+}
+
+
+
+@keyframes slideUp {
+
+    from {
+
+        transform:translateY(30px);
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+.task-card {
+
+    animation: taskAppear .35s ease;
+
+}
+
+
+@keyframes taskAppear {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+button {
+
+    transition:
+
+        transform .2s ease,
+        filter .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+button:hover {
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.1);
+
+    box-shadow:
+
+        0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+button:active {
+
+    transform:scale(.95);
+
+}
+
+.add-overlay {
+
+    animation:fadeIn .25s ease;
+
+}
+
+
+
+.add-window {
+
+    animation:popup .3s ease;
+
+}
+
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+@keyframes popup {
+
+    from {
+
+        opacity:0;
+
+        transform:
+
+            scale(.9)
+
+            translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+
+            scale(1)
+
+            translateY(0);
+
+    }
+
+}
+
+.react-calendar {
+
+    animation:calendarIn .4s ease;
+
+}
+
+
+
+@keyframes calendarIn {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.task-card:hover {
+
+    background:var(--card-hover);
+
+}
+
+.task-card:hover {
+
+    background:var(--card-hover);
+
+    transform:
+
+        translateX(5px);
+
+}
